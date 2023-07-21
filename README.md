@@ -1,6 +1,6 @@
 # RentCarWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+Rental car web project frontend created by Angular. Check my other repository for backend of this project
 
 ## Development server
 
