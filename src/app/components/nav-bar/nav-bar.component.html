@@ -1,0 +1,74 @@
+<div class="navbar_container">
+  <div class="left_side">
+    <img
+      [routerLink]="'/'"
+      class="pointer"
+      src="../../../assets/entoxLogo.png"
+      alt=""
+    />
+  </div>
+
+  <div class="right_side">
+    <div *ngIf="AuthService.isLoggedIn()" class="nav_item">
+      <a (click)="goToAddCarPage()"><i class="fa-solid fa-plus"></i></a>
+    </div>
+    <div *ngIf="AuthService.isLoggedIn()" class="nav_item">
+      <a (click)="openModal()">
+        <i
+          class="fa-solid fa-sack-dollar cas-light"
+          style="cursor: pointer"
+        ></i>
+      </a>
+    </div>
+
+    <div *ngIf="AuthService.isLoggedIn()" class="nav_item">
+      <img
+        class="hoverable"
+        [class.active]="hasNewNotifications"
+        (click)="toggleNotifications()"
+        src="../../../assets/notification-icon.svg"
+        alt=""
+      />
+      <div *ngIf="showNotifications">
+        <app-notification-box></app-notification-box>
+      </div>
+    </div>
+    <div *ngIf="AuthService.isLoggedIn()" class="nav_item hoverable">
+      <a [routerLink]="'/Profile'"
+        ><img src="../../../assets/settings-icon.svg" alt=""
+      /></a>
+    </div>
+    <div class="nav_item">
+      <button
+        [routerLink]="'/Login'"
+        *ngIf="!AuthService.isLoggedIn()"
+        class="Login_button"
+      >
+        Account
+      </button>
+      <button
+        *ngIf="AuthService.isLoggedIn()"
+        (click)="AuthService.logout()"
+        class="Logout_button"
+      >
+        Log out
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h2>Add Funds</h2>
+    <div>
+      <label for="amountInput">Amount:</label>
+      <input type="number" id="amountInput" [(ngModel)]="amount" />
+      <span class="currency-symbol">$</span>
+    </div>
+    <div class="modal-buttons">
+      <button (click)="addAmount()">Add</button>
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>

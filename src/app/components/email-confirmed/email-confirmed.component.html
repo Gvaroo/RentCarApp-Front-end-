@@ -1,0 +1,10 @@
+<div *ngIf="confirmationMessage !== ''" class="container">
+  <div class="md-card container-shadow">
+    <div class="card-header">Email Confirmation</div>
+    <div class="content-section">
+      <img src="../../../assets/entoxLogo.png" class="icon center" />
+      <h3>{{ confirmationMessage }}</h3>
+      <a routerLink="/Login">Click here to login to your Account</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+.navbar_container {
+  width: 100%;
+  height: 124px;
+  background-color: #17202d !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+
+  .right_side {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .nav_item {
+      margin-right: 30px;
+    }
+
+    button {
+      border: 0;
+    }
+
+    .hoverable {
+      &:hover {
+        filter: invert(49%) sepia(68%) saturate(3687%) hue-rotate(333deg)
+          brightness(92%) contrast(102%);
+      }
+    }
+
+    .Login_button {
+      width: 100%;
+      padding: 0 15px;
+      height: 45px;
+      border-radius: 8px;
+      background-color: #0aa5cd;
+      color: #fff;
+    }
+
+    .Logout_button {
+      width: 100%;
+      padding: 0 15px;
+      height: 45px;
+      border-radius: 8px;
+      background-color: #0aa5cd;
+      color: #fff;
+    }
+  }
+  i {
+    color: slategray !important;
+  }
+}
+
+/* Modal styles */
+i {
+  font-size: 17px;
+  color: darkslategray;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal div {
+  margin-bottom: 10px;
+}
+
+.modal label {
+  display: block;
+  font-weight: bold;
+}
+
+.modal input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-buttons button.add {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.modal-buttons button.close {
+  background-color: #ccc;
+}
+.currency-symbol {
+  position: absolute;
+  right: 10px;
+  color: #333;
+  font-size: 18px;
+}
+.active {
+  filter: invert(49%) sepia(68%) saturate(3687%) hue-rotate(333deg)
+    brightness(92%) contrast(102%);
+}
+@media screen and (max-width: 530px) {
+  .navbar_container {
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .right_side {
+    .nav_item {
+      margin-right: 0 !important;
+    }
+  }
+}

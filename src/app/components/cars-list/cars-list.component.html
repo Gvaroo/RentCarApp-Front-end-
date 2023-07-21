@@ -1,0 +1,34 @@
+<div class="outter_container">
+  <div class="flex_box">
+    <button class="btn btn-primary big_filter_button" (click)="openFilter()">
+      Filter Cars
+    </button>
+  </div>
+</div>
+
+<div class="centerer">
+  <div class="outter_box">
+    <div class="header_box">
+      <h1 class="popular_cars">All Cars</h1>
+    </div>
+
+    <div class="cards_box">
+      <app-car-card
+        *ngFor="let car of cars"
+        [car]="car"
+        [carUserEmail]="car.userEmail"
+      ></app-car-card>
+    </div>
+    <ngx-skeleton-loader
+      *ngIf="cars.length < 1"
+      count="5"
+      [theme]="{
+        height: '350px',
+        width: '270px',
+        margin: '25px',
+        background: 'grey',
+        opacity: '0.6'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+</div>

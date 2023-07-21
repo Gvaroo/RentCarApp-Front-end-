@@ -1,0 +1,21 @@
+<div class="profile_section" *ngIf="user">
+  <div class="users_info_side">
+    <h1 class="user-name">{{ user.name }} {{ user.lastName }}</h1>
+    <h1 class="balance">balance: {{ user.amount }} $</h1>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h1 class="liked_cars">Your rented cars</h1>
+  <app-rented-cars></app-rented-cars>
+</div>
+
+<div class="wrapper">
+  <h1 class="liked_cars">Your added cars</h1>
+  <app-user-added-cars></app-user-added-cars>
+</div>
+
+<div class="wrapper">
+  <h1 class="liked_cars">Your liked cars</h1>
+  <app-favorite-cars></app-favorite-cars>
+</div>

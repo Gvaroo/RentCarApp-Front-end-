@@ -1,0 +1,34 @@
+<div class="big-container" *ngIf="verified !== undefined">
+  <div class="thankyoucontent">
+    <div class="wrapper-1">
+      <div class="wrapper-2">
+        <img
+          src="https://i.ibb.co/Lkn7rkG/thank-you-envelope.png"
+          alt="thank-you-envelope"
+          border="0"
+        />
+        <ng-container *ngIf="verified; else notVerified">
+          <h1>Thank You for Registering!</h1>
+          <p>
+            To complete your registration and gain full access to our services,
+          </p>
+          <p>we kindly ask you to verify your email address.</p>
+          <p>
+            If you do not see it in your inbox, please also check your spam or
+            junk folder
+          </p>
+        </ng-container>
+
+        <ng-template #notVerified>
+          <h1>We detected that you logged in from a different location!</h1>
+          <p>Please check your email to confirm if it's really you.</p>
+          <p>
+            If you do not see it in your inbox, please also check your spam or
+            junk folder
+          </p>
+        </ng-template>
+        <button class="go-home"><a routerLink="/"> home page</a></button>
+      </div>
+    </div>
+  </div>
+</div>

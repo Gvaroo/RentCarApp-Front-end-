@@ -1,0 +1,144 @@
+@import url(../../../styles/_helper.scss);
+
+.car-card {
+  max-width: 20em;
+
+  box-shadow: 0 0 0 0.075em rgba(0, 0, 0, 0.05),
+    0 0.125em 0.125em 0 rgba(0, 0, 0, 0.05),
+    0 0.125em 0.125em 0 rgba(0, 0, 0, 0.09);
+  border-radius: 0.5em;
+  overflow: hidden;
+  .swiper_body {
+    width: 100%;
+    margin-top: 12px;
+
+    .slide_Image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__info {
+    background: white;
+    padding: 1em;
+    display: grid;
+    gap: 2.75em;
+  }
+
+  &__info * {
+    margin: 0;
+  }
+
+  &__intro {
+    display: grid;
+    grid:
+      "brand chip"
+      "model chip" auto / 1fr auto;
+    column-gap: 0.125em;
+    justify-content: start;
+    align-items: first baseline;
+  }
+
+  &__intro > * {
+    line-height: 1.1;
+  }
+
+  &__brand {
+    grid-area: brand;
+    font-size: var(--type-lg);
+    line-height: 1.1;
+  }
+
+  &__chip {
+    grid-area: chip;
+    display: inline-block;
+    border-radius: 100vh;
+    background-color: var(--color-mint-clear);
+    color: var(--color-tomato);
+    font-size: var(--type-sm);
+    text-transform: uppercase;
+    line-height: var(--type-sm);
+    letter-spacing: var(--tracking-tight);
+    padding: 1ex 1.5ch;
+    font-weight: 600;
+  }
+
+  &__model {
+    grid-area: model;
+    font-size: var(--type-base);
+    color: var(--color-dark-gray);
+  }
+
+  &__features {
+    --gap: 0.5ch;
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--gap) * -1);
+  }
+
+  &__features > :first-child {
+    flex-basis: 100%;
+    font-size: var(--type-sm);
+    color: var(--color-gray);
+  }
+
+  &__features > * {
+    margin: var(--gap);
+    line-height: 1;
+  }
+
+  &__feature {
+    display: inline-grid;
+    grid: "icon text" auto / min-content auto;
+    column-gap: 1ch;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  &__cta {
+    display: grid;
+    grid:
+      "price button"
+      "plan  button"
+      auto / minmax(0, 1fr) auto;
+    column-gap: 1ch;
+    align-items: start;
+    word-break: break-word;
+  }
+
+  &__cta > * {
+    line-height: 1;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: var(--type-lg);
+    letter-spacing: var(--tracking-tighter);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__plan {
+    grid-area: plan;
+    font-size: var(--type-sm);
+    color: var(--color-gray);
+  }
+
+  &__button {
+    grid-area: button;
+    background-color: var(--color-tomato);
+    color: white;
+    display: inline-flex;
+    place-content: center;
+    line-height: 2.25em;
+    min-width: 12ch;
+    padding: 0.5ex 2ch;
+    border-radius: 0.625em;
+    text-decoration: none;
+  }
+}

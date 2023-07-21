@@ -1,0 +1,259 @@
+<div class="flex_box">
+  <div class="container">
+    <form
+      (submit)="onSubmit()"
+      [formGroup]="addCarForm"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Name"
+          formControlName="name"
+          [(ngModel)]="car.name"
+        />
+        <label for="name">Name</label>
+        <div
+          *ngIf="
+            addCarForm.controls['name'].invalid &&
+            addCarForm.controls['name'].touched
+          "
+          class="text-danger"
+        >
+          Name is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <app-custom-dropdown
+          [options]="BrandsAndModels"
+          placeholder="Brand"
+          formControlName="brand"
+          (valueChange)="onBrandChange($event)"
+        ></app-custom-dropdown>
+        <div
+          *ngIf="
+            addCarForm.controls['brand'].invalid &&
+            addCarForm.controls['brand'].touched
+          "
+          class="text-danger"
+        >
+          Brand is required.
+        </div>
+      </div>
+      <div class="form-floating" *ngIf="BrandSelected">
+        <select
+          [ngModelOptions]="{ standalone: true }"
+          class="form-select"
+          placeholder="Model"
+          [(ngModel)]="selectedModel"
+          (change)="onValueChange()"
+        >
+          <option
+            *ngFor="let option of selectedBrandModels.models"
+            [value]="option.name"
+          >
+            {{ option.name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            addCarForm.controls['model'].invalid &&
+            addCarForm.controls['model'].touched
+          "
+          class="text-danger"
+        >
+          Model is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="year"
+          placeholder="Year"
+          formControlName="year"
+          [(ngModel)]="car.year"
+        />
+        <label for="year">Year</label>
+        <div
+          *ngIf="
+            addCarForm.controls['year'].invalid &&
+            addCarForm.controls['year'].touched
+          "
+          class="text-danger"
+        >
+          <div *ngIf="addCarForm.controls['year'].errors?.['required']">
+            Year is required.
+          </div>
+          <div *ngIf="addCarForm.controls['year'].errors?.['pattern']">
+            Invalid year format. Only numeric values allowed.
+          </div>
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="file"
+          class="form-control"
+          id="image1"
+          formControlName="image1"
+          (change)="onImageChange($event, 1)"
+        />
+        <label for="image1">Image 1</label>
+        <div
+          *ngIf="addCarForm.hasError('atLeastOneImageRequired')"
+          class="text-danger"
+        >
+          At least one image is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="file"
+          class="form-control"
+          id="image2"
+          formControlName="image2"
+          (change)="onImageChange($event, 2)"
+        />
+        <label for="image2">Image 2</label>
+      </div>
+      <div
+        *ngIf="addCarForm.hasError('atLeastOneImageRequired')"
+        class="text-danger"
+      >
+        At least one image is required.
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="file"
+          class="form-control"
+          id="image2"
+          formControlName="image3"
+          (change)="onImageChange($event, 3)"
+        />
+        <label for="image3">Image 3</label>
+      </div>
+      <div
+        *ngIf="addCarForm.hasError('atLeastOneImageRequired')"
+        class="text-danger"
+      >
+        At least one image is required.
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          placeholder="Price"
+          formControlName="price"
+          [(ngModel)]="car.price"
+        />
+        <label for="price">Price</label>
+        <div
+          *ngIf="
+            addCarForm.controls['price'].invalid &&
+            addCarForm.controls['price'].touched
+          "
+          class="text-danger"
+        >
+          Price is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="capacity"
+          placeholder="Capacity"
+          formControlName="capacity"
+          [(ngModel)]="car.capacity"
+        />
+        <label for="capacity">Capacity</label>
+        <div
+          *ngIf="
+            addCarForm.controls['capacity'].invalid &&
+            addCarForm.controls['capacity'].touched
+          "
+          class="text-danger"
+        >
+          Capacity is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <app-custom-dropdown
+          [options2]="transmissions"
+          placeholder="Transmission"
+          formControlName="selectedTransmission"
+          (valueChange)="onTransmissionChange($event)"
+        ></app-custom-dropdown>
+        <div
+          *ngIf="
+            addCarForm.controls['transmission'].invalid &&
+            addCarForm.controls['transmission'].touched
+          "
+          class="text-danger"
+        >
+          Transmission is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="fuelCapacity"
+          placeholder="Fuel Capacity"
+          formControlName="fuelCapacity"
+          [(ngModel)]="car.fuelCapacity"
+        />
+        <label for="fuelCapacity">Fuel Capacity</label>
+        <div
+          *ngIf="
+            addCarForm.controls['fuelCapacity'].invalid &&
+            addCarForm.controls['fuelCapacity'].touched
+          "
+          class="text-danger"
+        >
+          Fuel Capacity is required.
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          placeholder="city"
+          formControlName="city"
+          [(ngModel)]="car.city"
+        />
+        <label for="city">City</label>
+        <div
+          *ngIf="
+            addCarForm.controls['city'].invalid &&
+            addCarForm.controls['city'].touched
+          "
+          class="text-danger"
+        >
+          City is required.
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+  </div>
+
+  <div class="right_side"></div>
+</div>
+
+<div *ngIf="loading" class="loading">Loading&#8230;</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>

@@ -1,0 +1,64 @@
+.profile_section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row-reverse;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .users_info_side {
+    padding: 0 20px;
+    h1 {
+      color: #1b202c;
+    }
+  }
+}
+.user-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.balance {
+  font-size: 18px;
+  color: #777777;
+  margin-top: 4px;
+}
+.liked_cars {
+  font-size: 19px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.wrapper {
+  padding: 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.user-name {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.balance {
+  font-size: 22px;
+  color: #888;
+}

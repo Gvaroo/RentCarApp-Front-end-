@@ -1,0 +1,7 @@
+<div class="wrappr">
+  <app-unlike-car-card
+    *ngFor="let car of cars"
+    [car]="car"
+    [carUserEmail]="car.userEmail"
+  ></app-unlike-car-card>
+</div>

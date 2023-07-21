@@ -1,0 +1,103 @@
+<div class="left_side">
+  <div class="filter_container">
+    <div class="form-group">
+      <label for="brandInput">Brands</label>
+      <select id="brandInput" class="form-control" [(ngModel)]="filter.brand">
+        <option [ngValue]="null">All</option>
+        <option *ngFor="let brand of brands" [value]="brand.name">
+          {{ brand.name }}
+        </option>
+      </select>
+
+      <div class="form-group">
+        <label for="cityInput">City</label>
+        <select id="cityInput" class="form-control" [(ngModel)]="filter.city">
+          <option selected [ngValue]="null">All</option>
+          <option *ngFor="let city of cities" [value]="city">
+            {{ city }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="startYearInput">Start Year</label>
+        <select
+          id="startYearInput"
+          class="form-control"
+          [(ngModel)]="filter.startYear"
+        >
+          <option selected [ngValue]="null">All</option>
+          <option *ngFor="let year of startYears" [value]="year">
+            {{ year }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="endYearInput">End Year</label>
+        <select
+          id="endYearInput"
+          class="form-control"
+          [(ngModel)]="filter.endYear"
+        >
+          <option selected [ngValue]="null">All</option>
+          <option *ngFor="let year of endYears" [value]="year">
+            {{ year }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="capacityInput">Price</label>
+        <ngx-slider
+          [(value)]="minPrice"
+          [(highValue)]="maxPrice"
+          [options]="options"
+        ></ngx-slider>
+      </div>
+      <div class="form-group">
+        <label for="capacityInput">Capacity</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            name="capacityInput"
+            id="capacityInputAll"
+            class="form-check-input"
+            [value]="null"
+            [(ngModel)]="filter.capacity"
+          />
+          <label for="capacityInputAll" class="form-check-label">All</label>
+        </div>
+        <div class="form-check" *ngFor="let capacityOption of capacityOptions">
+          <input
+            type="radio"
+            name="capacityInput"
+            id="capacityInput{{ capacityOption }}"
+            class="form-check-input"
+            [value]="capacityOption"
+            [(ngModel)]="filter.capacity"
+          />
+          <label
+            for="capacityInput{{ capacityOption }}"
+            class="form-check-label"
+            >{{ capacityOption }}</label
+          >
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="applyFilter()">Search</button>
+  </div>
+  <div class="container-fluid flexer">
+    <div *ngIf="cars" class="container-fluid">
+      <app-car-card *ngFor="let car of cars" [car]="car"></app-car-card>
+    </div>
+    <ngx-skeleton-loader
+      *ngIf="cars.length < 1"
+      count="25"
+      [theme]="{
+        height: '350px',
+        width: '270px',
+        margin: '25px',
+        background: 'grey',
+        opacity: '0.6'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+</div>

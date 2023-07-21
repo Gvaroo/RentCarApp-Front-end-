@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100;200;300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+@import "~bootstrap/dist/css/bootstrap.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  --color-white-smoke: #f1f1f1;
+  --color-latte-machiato: #cabbb6;
+  --color-black: #130f0f;
+  --color-dark-gray: #65605d;
+  --color-gray: gray;
+  --color-tomato: #ec2919;
+  --color-bordeaux: #521f1e;
+  --color-capuccino: #a09861;
+  --color-mint-clear: #e9f7ef;
+  --color-mint-accent: #22a65d;
+  --type-ratio: 1.25;
+  --type-xs: calc(var(--type-sm) / var(--type-ratio));
+  --type-sm: calc(var(--type-base) / var(--type-ratio));
+  --type-base: 1em;
+  --type-md: calc(var(--type-base) * var(--type-ratio));
+  --type-lg: calc(var(--type-md) * var(--type-ratio));
+  --type-xl: calc(var(--type-lg) * var(--type-ratio));
+  --type-2xl: calc(var(--type-xl) * var(--type-ratio));
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font: 100%/1.5 Inter, Helvetica Neue, sans-serif;
+  background-color: var(--color-white-smoke);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+@import "./styles/helper";
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
